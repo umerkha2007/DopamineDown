@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dopamine Down - Statistics</title>
+    <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Your Productivity Stats</h1>
+            <p class="subtitle">Track your focus journey</p>
+            <div class="header-actions">
+                <select id="timeRange">
+                    <option value="today">Today</option>
+                    <option value="week" selected>This Week</option>
+                    <option value="month">This Month</option>
+                    <option value="all">All Time</option>
+                </select>
+                <button id="exportData" class="btn-secondary">Export Data</button>
+            </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <section class="summary-cards">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <div class="card-content">
+                    <h3>Focus Time</h3>
+                    <div class="stat-value" id="totalFocusTime">0h 0m</div>
+                    <div class="stat-change positive" id="focusTimeChange">+0% from last period</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <div class="card-content">
+                    <h3>Distractions</h3>
+                    <div class="stat-value" id="totalDistractions">0</div>
+                    <div class="stat-change negative" id="distractionsChange">+0% from last period</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔥</div>
+                <div class="card-content">
+                    <h3>Current Streak</h3>
+                    <div class="stat-value" id="currentStreak">0 days</div>
+                    <div class="stat-change" id="streakInfo">Best: 0 days</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <div class="card-content">
+                    <h3>Productivity Score</h3>
+                    <div class="stat-value" id="productivityScore">0%</div>
+                    <div class="stat-change positive" id="scoreChange">+0% from last period</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Focus Time Trend</h2>
+                <canvas id="focusTimeChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Distractions Over Time</h2>
+                <canvas id="distractionsChart"></canvas>
+            </div>
+        </section>
+
+        <section class="charts-section two-column">
+            <div class="chart-container">
+                <h2>Top Distracting Sites</h2>
+                <canvas id="topSitesChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Daily Activity Heatmap</h2>
+                <div id="heatmapContainer"></div>
+            </div>
+        </section>
+
+        <!-- Detailed Stats -->
+        <section class="detailed-stats">
+            <h2>Detailed Breakdown</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Average Daily Focus</span>
+                    <span class="stat-value-small" id="avgDailyFocus">0h 0m</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Peak Productivity Hour</span>
+                    <span class="stat-value-small" id="peakHour">--:--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Most Focused Day</span>
+                    <span class="stat-value-small" id="bestDay">---</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Blocked Distractions</span>
+                    <span class="stat-value-small" id="blockedCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Average Session Length</span>
+                    <span class="stat-value-small" id="avgSession">0 min</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Sessions</span>
+                    <span class="stat-value-small" id="totalSessions">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div id="activityList" class="activity-list">
+                <!-- Activity items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <button id="resetStats" class="btn-danger">Reset All Statistics</button>
+            <p class="footer-note">Your data is stored locally and never leaves your browser</p>
+        </footer>
+    </div>
+
+    <script src="chart.min.js"></script>
+    <script src="stats.js"></script>
+</body>
+</html>

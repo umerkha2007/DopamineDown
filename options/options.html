@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dopamine Down - Settings</title>
+  <link rel="stylesheet" href="options.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <span class="material-icons header-icon">psychology</span>
+        <h1 class="header-title">Dopamine Down Settings</h1>
+      </div>
+      <p class="header-subtitle">Customize your focus experience</p>
+    </header>
+
+    <!-- Focus Mode Settings -->
+    <section class="settings-section">
+      <div class="section-header">
+        <span class="material-icons">timer</span>
+        <h2>Focus Mode</h2>
+      </div>
+      
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="defaultFocusDuration">Default Focus Duration</label>
+            <span class="setting-description">How long should focus sessions last by default?</span>
+          </div>
+          <div class="setting-control">
+            <input type="number" id="defaultFocusDuration" min="5" max="180" value="25">
+            <span class="unit">minutes</span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="autoStartFocus">Auto-start Focus Mode</label>
+            <span class="setting-description">Automatically start focus mode on browser startup</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="autoStartFocus">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="breakReminders">Break Reminders</label>
+            <span class="setting-description">Get reminded to take breaks between focus sessions</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="breakReminders">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="breakDuration">Break Duration</label>
+            <span class="setting-description">How long should breaks last?</span>
+          </div>
+          <div class="setting-control">
+            <input type="number" id="breakDuration" min="1" max="30" value="5">
+            <span class="unit">minutes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detection Settings -->
+    <section class="settings-section">
+      <div class="section-header">
+        <span class="material-icons">psychology_alt</span>
+        <h2>Distraction Detection</h2>
+      </div>
+      
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="sensitivityLevel">Detection Sensitivity</label>
+            <span class="setting-description">How quickly should the extension detect distractions?</span>
+          </div>
+          <div class="setting-control slider-control">
+            <div class="sensitivity-container">
+              <input type="range" id="sensitivityLevel" min="1" max="3" value="2" class="slider-range">
+              <div class="sensitivity-labels">
+                <span>Low</span>
+                <span>Medium</span>
+                <span>High</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="enableDetection">Enable Distraction Detection</label>
+            <span class="setting-description">Monitor browsing behavior for potential distractions</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="enableDetection" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="detectionDelay">Detection Delay</label>
+            <span class="setting-description">Wait time before flagging a site as distracting</span>
+          </div>
+          <div class="setting-control">
+            <input type="number" id="detectionDelay" min="5" max="60" value="15">
+            <span class="unit">seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blocked Sites -->
+    <section class="settings-section">
+      <div class="section-header">
+        <span class="material-icons">block</span>
+        <h2>Site Management</h2>
+      </div>
+      
+      <div class="setting-group">
+        <div class="setting-item full-width">
+          <div class="setting-info">
+            <label>Blocked Sites</label>
+            <span class="setting-description">Sites that will be blocked during focus mode</span>
+          </div>
+          <div class="site-list-container">
+            <div class="add-site-form">
+              <input type="text" id="newBlockedSite" placeholder="e.g., facebook.com, youtube.com">
+              <button class="btn btn-primary" id="addBlockedSite">
+                <span class="material-icons">add</span>
+                Add Site
+              </button>
+            </div>
+            <div class="site-list" id="blockedSitesList">
+              <!-- Blocked sites will be dynamically added here -->
+            </div>
+          </div>
+        </div>
+
+        <div class="setting-item full-width">
+          <div class="setting-info">
+            <label>Allowed Sites</label>
+            <span class="setting-description">Sites that are always allowed (whitelist)</span>
+          </div>
+          <div class="site-list-container">
+            <div class="add-site-form">
+              <input type="text" id="newAllowedSite" placeholder="e.g., docs.google.com, github.com">
+              <button class="btn btn-primary" id="addAllowedSite">
+                <span class="material-icons">add</span>
+                Add Site
+              </button>
+            </div>
+            <div class="site-list" id="allowedSitesList">
+              <!-- Allowed sites will be dynamically added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notifications -->
+    <section class="settings-section">
+      <div class="section-header">
+        <span class="material-icons">notifications</span>
+        <h2>Notifications</h2>
+      </div>
+      
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="enableNotifications">Enable Notifications</label>
+            <span class="setting-description">Show notifications for focus events and distractions</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="enableNotifications" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="notificationSound">Notification Sound</label>
+            <span class="setting-description">Play a sound when showing notifications</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="notificationSound">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="motivationalMessages">Motivational Messages</label>
+            <span class="setting-description">Show encouraging messages during focus sessions</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="motivationalMessages" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data & Privacy -->
+    <section class="settings-section">
+      <div class="section-header">
+        <span class="material-icons">shield</span>
+        <h2>Data & Privacy</h2>
+      </div>
+      
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="collectStats">Collect Statistics</label>
+            <span class="setting-description">Track focus time and distraction data for insights</span>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="collectStats" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label>Reset All Data</label>
+            <span class="setting-description">Clear all statistics and saved data</span>
+          </div>
+          <div class="setting-control">
+            <button class="btn btn-danger" id="resetDataBtn">
+              <span class="material-icons">delete_forever</span>
+              Reset Data
+            </button>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-info">
+            <label>Export Data</label>
+            <span class="setting-description">Download your statistics and settings</span>
+          </div>
+          <div class="setting-control">
+            <button class="btn btn-secondary" id="exportDataBtn">
+              <span class="material-icons">download</span>
+              Export
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <div class="actions-footer">
+      <button class="btn btn-secondary" id="resetSettingsBtn">
+        <span class="material-icons">restart_alt</span>
+        Reset to Defaults
+      </button>
+      <div class="save-status" id="saveStatus">
+        <span class="material-icons">check_circle</span>
+        <span>Settings saved automatically</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "dopamine-down",
+  "version": "1.0.0",
+  "description": "AI-powered Chrome extension that gently calls you out when you're drifting into distraction",
+  "main": "background/background.js",
+  "scripts": {
+    "dev": "echo 'Load the extension in Chrome by going to chrome://extensions and enabling Developer Mode'",
+    "build": "npm run lint",
+    "lint": "eslint popup/**/*.js background/**/*.js content/**/*.js utils/**/*.js",
+    "format": "prettier --write \"**/*.{js,json,css,html,md}\"",
+    "test": "echo 'No tests yet - coming soon!'",
+    "zip": "node scripts/build-zip.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umerkha2007/DopamineDown.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "productivity",
+    "focus",
+    "distraction-blocker",
+    "ai",
+    "material-design",
+    "30Days30Apps"
+  ],
+  "author": "Umer Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umerkha2007/DopamineDown/issues"
+  },
+  "homepage": "https://github.com/umerkha2007/DopamineDown#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dopamine Down</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <span class="material-icons header-icon">psychology</span>
+        <h1 class="header-title">Dopamine Down</h1>
+      </div>
+      <p class="header-subtitle">Stay focused, stay productive</p>
+    </header>
+
+    <!-- Focus Mode Card -->
+    <div class="card">
+      <div class="card-header">
+        <span class="material-icons">timer</span>
+        <h2>Focus Mode</h2>
+      </div>
+      <div class="card-content">
+        <div class="toggle-container">
+          <span class="toggle-label">Enable Focus Mode</span>
+          <label class="switch">
+            <input type="checkbox" id="focusModeToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div id="focusModeSettings" class="focus-settings hidden">
+          <div class="setting-item">
+            <label for="focusDuration">Duration (minutes)</label>
+            <input type="number" id="focusDuration" min="5" max="180" value="25" class="input-field">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Card -->
+    <div class="card">
+      <div class="card-header">
+        <span class="material-icons">insights</span>
+        <h2>Today's Stats</h2>
+      </div>
+      <div class="card-content">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value" id="focusTime">0h 0m 0s</span>
+            <span class="stat-label">Focus Time</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="distractions">0</span>
+            <span class="stat-label">Distractions Caught</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sensitivity Settings -->
+    <div class="card">
+      <div class="card-header">
+        <span class="material-icons">tune</span>
+        <h2>Sensitivity</h2>
+      </div>
+      <div class="card-content">
+        <div class="sensitivity-container">
+          <div class="sensitivity-labels">
+            <span>Low</span>
+            <span>Medium</span>
+            <span>High</span>
+          </div>
+          <input type="range" id="sensitivity" min="1" max="3" value="2" class="slider-range">
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button class="btn btn-secondary" id="settingsBtn">
+        <span class="material-icons">settings</span>
+        Settings
+      </button>
+      <button class="btn btn-primary" id="statsBtn">
+        <span class="material-icons">bar_chart</span>
+        View Stats
+      </button>
+    </div>
+
+    <!-- Status -->
+    <div class="status" id="status">
+      <span class="material-icons status-icon">check_circle</span>
+      <span class="status-text">All systems operational</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
